@@ -6,11 +6,6 @@ from app import login
 from hashlib import md5
 
 
-@login.user_loader
-def load_user(id):
-    return User.query.get(int(id))
-
-
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -33,6 +28,11 @@ class User(UserMixin, db.Model):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
             digest, size)
+
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 
 class Post(db.Model):
