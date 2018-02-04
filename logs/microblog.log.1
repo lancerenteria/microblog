@@ -1,4 +1,4 @@
-2018-02-03 05:33:22,740 ERROR: Exception on /index [GET] [in c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py:1560]
+2018-02-03 05:36:16,958 ERROR: Exception on /index [GET] [in c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py:1560]
 Traceback (most recent call last):
   File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -73,7 +73,9 @@ Traceback (most recent call last):
   File "c:\lren\projects\microblog\venv\lib\site-packages\jinja2\parser.py", line 59, in fail
     raise exc(msg, lineno, self.name, self.filename)
 jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endif'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
-2018-02-03 05:33:29,636 ERROR: Exception on /explore [GET] [in c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py:1560]
+2018-02-03 05:45:25,887 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
+2018-02-03 05:57:25,108 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
+2018-02-03 05:57:41,630 ERROR: Exception on /explore [GET] [in c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py:1560]
 Traceback (most recent call last):
   File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -89,7 +91,45 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\lren\projects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\lren\projects\microblog\app\routes.py", line 145, in explore
-    posts = Post.query.ordery_by(Post.timestamp.desc()).all()
-AttributeError: 'BaseQuery' object has no attribute 'ordery_by'
-2018-02-03 05:34:40,277 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
+  File "C:\lren\projects\microblog\app\routes.py", line 149, in explore
+    page, app.config['POSTS_PER_PAGE'], false)
+NameError: name 'false' is not defined
+2018-02-03 05:59:47,269 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
+2018-02-03 06:00:14,904 ERROR: Exception on /index [GET] [in c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\lren\projects\microblog\app\routes.py", line 42, in index
+    posts=posts)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\lren\projects\microblog\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\lren\projects\microblog\app\templates\base.html", line 30, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\lren\projects\microblog\app\templates\index.html", line 19, in block "content"
+    {% for post in posts %}
+TypeError: 'Pagination' object is not iterable
+2018-02-03 06:29:14,135 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]

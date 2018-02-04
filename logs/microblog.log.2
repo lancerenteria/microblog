@@ -1,18 +1,4 @@
-2018-01-28 10:32:10,002 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-01-28 10:32:24,423 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-01-28 11:23:19,450 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-01-28 11:32:38,491 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-01-28 11:35:15,529 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-01-28 11:38:08,785 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-01-28 11:53:18,340 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-01-28 11:54:22,913 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-01-28 11:54:36,759 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-01-28 11:58:42,798 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-01-28 12:32:55,115 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-01-28 16:43:52,371 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-02-03 04:55:00,073 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-02-03 05:32:36,717 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
-2018-02-03 05:32:44,832 ERROR: Exception on / [GET] [in c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py:1560]
+2018-02-03 05:33:22,740 ERROR: Exception on /index [GET] [in c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py:1560]
 Traceback (most recent call last):
   File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -87,3 +73,23 @@ Traceback (most recent call last):
   File "c:\lren\projects\microblog\venv\lib\site-packages\jinja2\parser.py", line 59, in fail
     raise exc(msg, lineno, self.name, self.filename)
 jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endif'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'endfor' or 'else'. The innermost block that needs to be closed is 'for'.
+2018-02-03 05:33:29,636 ERROR: Exception on /explore [GET] [in c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\lren\projects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\lren\projects\microblog\app\routes.py", line 145, in explore
+    posts = Post.query.ordery_by(Post.timestamp.desc()).all()
+AttributeError: 'BaseQuery' object has no attribute 'ordery_by'
+2018-02-03 05:34:40,277 INFO: Microblog startup [in C:\lren\projects\microblog\app\__init__.py:44]
